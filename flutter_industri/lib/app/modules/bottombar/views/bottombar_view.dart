@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_industri/app/modules/profile/views/profile_view.dart';
+import 'package:flutter_industri/app/modules/tahunajaran/views/tahunajaran_view.dart';
 import 'package:get/get.dart';
 import '../controllers/bottombar_controller.dart';
 import '../../home/views/home_view.dart';
@@ -9,6 +10,8 @@ class BottombarView extends GetView<BottombarController> {
   const BottombarView({Key? key});
   @override
   Widget build(BuildContext context) {
+  final initialIndex = Get.arguments != null ? Get.arguments['index'] : 0;
+	controller.changeIndex(initialIndex);
 	return GetBuilder<BottombarController>(
   	builder: (controller) {
     	return Scaffold(
@@ -18,7 +21,7 @@ class BottombarView extends GetView<BottombarController> {
           	children: [
             	HomeView(),
             	MapelView(),
-              ProfileView(),
+              TahunAjaranView(),
           	],
         	),
       	),

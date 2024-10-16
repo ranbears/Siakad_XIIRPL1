@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_industri/app/routes/app_pages.dart';
 import 'package:get/get.dart';
 import '../controllers/mapel_controller.dart';
 
@@ -15,9 +16,10 @@ class MapelView extends GetView<MapelController> {
     	padding: const EdgeInsets.all(8.0),
     	child: Obx(
       	() {
-        	if (!controller.isLoaded.value) {
-          	return Center(child: CircularProgressIndicator());
-        	}
+        if (!Get.isRegistered<MapelController>()) {
+        	return Center(child: CircularProgressIndicator());
+      	}
+      	final controller = Get.find<MapelController>();
 
         	if (controller.mapel.value.data == null || controller.mapel.value.data!.isEmpty) {
           	return Center(child: Text('Data kosong.'));
@@ -63,7 +65,7 @@ class MapelView extends GetView<MapelController> {
       	},
     	),
   	),
-  	floatingActionButton: Column(
+      floatingActionButton: Column(
     	mainAxisAlignment: MainAxisAlignment.end,
     	crossAxisAlignment: CrossAxisAlignment.end,
     	children: [
@@ -75,9 +77,18 @@ class MapelView extends GetView<MapelController> {
         	backgroundColor: Colors.red,
       	),
       	SizedBox(height: 10),
+      	FloatingActionButton(
+        	onPressed: () {
+          	Get.toNamed(Routes.MAPELTAMBAH);
+        	},
+        	child: Icon(Icons.add),
+        	backgroundColor: Colors.red,
+      	),
+      	SizedBox(height: 10),
     	],
   	),
   	floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
+
 	);
   }
 }
