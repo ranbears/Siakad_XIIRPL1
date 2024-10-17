@@ -21,7 +21,7 @@ class BottombarView extends GetView<BottombarController> {
           	children: [
             	HomeView(),
             	MapelView(),
-              TahunAjaranView(),
+                TahunAjaranView(),
           	],
         	),
       	),
@@ -39,7 +39,7 @@ class BottombarView extends GetView<BottombarController> {
             	label: 'Home',
           	),
           	controller.BotBar(
-            	ikon: Icons.calendar_month,
+            	ikon: Icons.book_online,
             	label: 'Mapel',
           	),
             controller.BotBar(
