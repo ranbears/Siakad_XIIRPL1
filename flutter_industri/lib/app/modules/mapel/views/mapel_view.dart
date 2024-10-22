@@ -131,6 +131,13 @@ class MapelView extends GetView<MapelController> {
                           },
                           child: Text('Update'),
                         ),
+                        ElevatedButton(
+                          onPressed: () async {
+                            print('Menghapus mapel dengan ID: ${element.id}');
+                            await controller.deleteMapel(element.id!);
+                          },
+                          child: Text('Hapus'),
+                        ),
 
                   	],
                 	),

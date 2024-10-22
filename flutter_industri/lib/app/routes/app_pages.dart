@@ -4,6 +4,8 @@ import '../modules/bottombar/bindings/bottombar_binding.dart';
 import '../modules/bottombar/views/bottombar_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
+import '../modules/loginn/bindings/loginn_binding.dart';
+import '../modules/loginn/views/loginn_view.dart';
 import '../modules/mapel/bindings/mapel_binding.dart';
 import '../modules/mapel/views/mapel_tambah_view.dart';
 import '../modules/mapel/views/mapel_view.dart';
@@ -17,7 +19,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.BOTTOMBAR;
+  static const INITIAL = Routes.LOGINN;
 
   static final routes = [
     GetPage(
@@ -49,6 +51,11 @@ class AppPages {
       name: _Paths.TAHUNAJARAN,
       page: () => const TahunAjaranView(),
       binding: TahunajaranBinding(),
+    ),
+    GetPage(
+      name: _Paths.LOGINN,
+      page: () => const LoginView(),
+      binding: LoginBinding(),
     ),
   ];
 }
